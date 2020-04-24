@@ -3,14 +3,24 @@ import { Link } from 'react-router-dom';
 
 class Clients extends Component {
     render() {
-        const clients = [{
+        const clients = [
+            {
             id: '3536272828',
             firstNmae: 'kevin',
             lastName: 'Johsnson',
             email: 'keving@gmail.com',
             phone: '0810912715',
             balance: '30'
-        }]
+        },
+         {
+            id: '3536272828',
+            firstNmae: 'Bob',
+            lastName: 'Jackson',
+            email: 'bob@gmail.com',
+            phone: '0810912715',
+            balance: '30'
+        }
+    ];
         if(clients){
             return (
              <div>
@@ -34,23 +44,27 @@ class Clients extends Component {
                        </tr> 
                    </thead>
                    <tbody>
-                       {clients.map(clients => {
+                       {clients.map(client => (
                            <tr key={client.id}> 
-                           <td>{client.firstName} {client.lastName} </td>
+                           <td>{client.firstName} {client.lastName} 
+                           </td>
                            <td>{client.email}</td>
-                           <td>{client.balance}</td>
+                           <td>${parseFloat(client.balance).toFixed(2)}</td>
                            <td>
-                               <Link to={`/client/${client.id}`} className="btn btn-secondary btn-sm">
-
+                               <Link
+                                to={`/client/${client.id}`} 
+                                className="btn btn-secondary btn-sm"
+                                >
+                                <i className="fas fa-arrow-circle-right"></i>  Details 
                                </Link>
                            </td>
                            </tr>
-                       })}
+                        ))}
                    </tbody>
                </table>
              </div>
             );
-        }else {
+        } else {
             return <h1>Loading...</h1>
         }
     }
