@@ -4,10 +4,15 @@ import Sidebar from '../layout/Sidebar';
 
 function Dashboard() {
     return (
-        <div>
-            <h1>Dashboard</h1>
+      <div className="row">
+        <div className="col-md-10">
+          <Clients />
         </div>
-    )
+        <div className="col-md-2">
+            <Sidebar />
+        </div>
+      </div>
+    );
 }
 
 
