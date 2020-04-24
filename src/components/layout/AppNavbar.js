@@ -10,7 +10,7 @@ class AppNavbar extends Component {
                 ClientPanel
               </Link>
               <button
-                className="toggler"
+                className="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarMain"
@@ -21,7 +21,7 @@ class AppNavbar extends Component {
                 <ul className="navbar-nav mr-auto">
                   <li className="nav-item">
                     <Link to="/" className="nav-link">
-
+                      Dashboard
                     </Link>
                   </li>
                 </ul>
