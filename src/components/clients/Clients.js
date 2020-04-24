@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Clients extends Component {
     render() {
@@ -10,11 +11,48 @@ class Clients extends Component {
             phone: '0810912715',
             balance: '30'
         }]
-        return (
-            <div>
-                <h1>Clients</h1>
-            </div>
-        )
+        if(clients){
+            return (
+             <div>
+               <div className="row">
+                   <div className="col-md-6">
+                    <h2> 
+                        {' '}
+                        <i className="fas fa-users"></i> Clients {' '} 
+                    </h2>
+                   </div>
+                   <div className="col-md-6" />
+
+               </div>
+               <table className="table-striped">
+                   <thead className="thead-inverse">
+                       <tr>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Balance</th>
+                           <th />
+                       </tr> 
+                   </thead>
+                   <tbody>
+                       {clients.map(clients => {
+                           <tr key={client.id}> 
+                           <td>{client.firstName} {client.lastName} </td>
+                           <td>{client.email}</td>
+                           <td>{client.balance}</td>
+                           <td>
+                               <Link to={`/client/${client.id}`} className="btn btn-secondary btn-sm">
+
+                               </Link>
+                           </td>
+                           </tr>
+                       })}
+                   </tbody>
+               </table>
+             </div>
+            );
+        }else {
+            return <h1>Loading...</h1>
+        }
     }
 }
 
